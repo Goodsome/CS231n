@@ -20,3 +20,8 @@ x: 32 * 32 * 3 = 3073
 W: 10 * 3072	
 f: 10 * 1	
 
+## 3. Loss Functions and Optimization
+
+### 3.1 Loss Function
+
+$L_{i}=\sum_{j\neq y_{i}}max(0,S_{j}-S_{y_{i}})$
