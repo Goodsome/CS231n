@@ -1,8 +1,8 @@
 import numpy as np
 
-a = np.array([1,2,3,4,5])
-b = np.array([2,2,2,2,2])
-
-x = sum((b - a)**2)**0.5
-
-print(x)
+a = np.random.randn(2,3)
+c = np.array([1,2]).reshape(1,2)
+b = a[[0,1],[[1,2]]].reshape(2,1)
+print(a)
+print(b.shape)
+print(a - b)

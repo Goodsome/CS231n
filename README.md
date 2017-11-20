@@ -24,4 +24,5 @@ f: 10 * 1
 
 ### 3.1 Loss Function
 
-$L_{i}=\sum_{j\neq y_{i}}max(0,S_{j}-S_{y_{i}})$
+$$L_{i}=\sum_{j\neq y_{i}}max(0,S_{j}-S_{y_{i}})$$
+
