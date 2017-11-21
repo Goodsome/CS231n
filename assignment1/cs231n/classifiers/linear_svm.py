@@ -96,6 +96,10 @@ def svm_loss_vectorized(W, X, y, reg):
   # to reuse some of the intermediate values that you used to compute the     #
   # loss.                                                                     #
   #############################################################################
+  coeff = np.zeros((num_train,num_classes))
+  coeff[margins > 0] = 1
+  coeff[range(num_train),list(y)] = -np.sum(coeff,axis = 1)
+  dW = X.T.dot(coeff) / num_train + reg * 2 * W
   pass
   #############################################################################
   #                             END OF YOUR CODE                              #
