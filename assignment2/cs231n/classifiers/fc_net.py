@@ -249,10 +249,26 @@ class FullyConnectedNet(object):
         ############################################################################
         layer_input = X
         ar_cache = {}
+        dp_cache = {}
         for lay in range(self.num_layers - 1):
-            layer_input, ar_cache[lay + 1] = affine_relu_forward(layer_input,
-                                                                 self.params['W%d' % (lay + 1)],
-                                                                 self.params['b%d' % (lay + 1)])
+            if self.use_batchnorm:
+                layer_input, ar_cache[lay + 1] = affine_bn_relu_forward(
+                    layer_input,
+                    self.params['W%d' % (lay + 1)],
+                    self.params['b%d' % (lay + 1)],
+                    self.params['gamma%d' % (lay + 1)],
+                    self.params['beta%d' % (lay + 1)],
+                    self.bn_params[lay],
+                )
+            else:
+                layer_input, ar_cache[lay + 1] = affine_relu_forward(
+                    layer_input,
+                    self.params['W%d' % (lay + 1)],
+                    self.params['b%d' % (lay + 1)],
+                )
+            if self.use_dropout:
+                layer_input, dp_cache[lay + 1] = dropout_forward(layer_input, self.dropout_param)
+
         ar_out, ar_cache[self.num_layers] = affine_forward(layer_input,
                                                            self.params['W%d' % self.num_layers],
                                                            self.params['b%d' % self.num_layers])
@@ -290,7 +306,14 @@ class FullyConnectedNet(object):
         for idx in range(self.num_layers - 1):
             lay = self.num_layers - idx - 1
             loss += 0.5 * self.reg * np.sum(np.square(self.params['W%d' % lay]))
-            dhout, dw, db, = affine_relu_backward(dhout, ar_cache[lay])
+            if self.use_dropout:
+                dhout = dropout_backward(dhout, dp_cache[lay])
+            if self.use_batchnorm:
+                dhout, dw, db, dgamma, dbeta = affine_bn_relu_backward(dhout, ar_cache[lay])
+                grads['gamma%d' % lay] = dgamma
+                grads['beta%d' % lay] = dbeta
+            else:
+                dhout, dw, db, = affine_relu_backward(dhout, ar_cache[lay])
             grads['W%d' % lay] = dw + self.reg * self.params['W%d' % lay]
             grads['b%d' % lay] = db
         pass
