@@ -174,6 +174,13 @@ def batchnorm_forward(x, gamma, beta, bn_param):
         # variance, storing your result in the running_mean and running_var   #
         # variables.                                                          #
         #######################################################################
+        sample_mean = np.mean(x, axis=0)
+        sample_var = np.var(x, axis=0)
+        x_hat = (x - sample_mean) / (np.sqrt(sample_var + eps))
+        out = gamma * x_hat + beta
+        cache = (gamma, x, sample_mean, sample_var, eps, x_hat)
+        running_mean = momentum * running_mean + (1 - momentum) * sample_mean
+        running_var = momentum * running_var + (1 - momentum) * sample_var
         pass
         #######################################################################
         #                           END OF YOUR CODE                          #
@@ -185,6 +192,8 @@ def batchnorm_forward(x, gamma, beta, bn_param):
         # then scale and shift the normalized data using gamma and beta.      #
         # Store the result in the out variable.                               #
         #######################################################################
+        x_hat = (x - running_mean) / (np.sqrt(running_var + eps))
+        out = gamma * x_hat + beta
         pass
         #######################################################################
         #                          END OF YOUR CODE                           #
@@ -221,6 +230,12 @@ def batchnorm_backward(dout, cache):
     # TODO: Implement the backward pass for batch normalization. Store the    #
     # results in the dx, dgamma, and dbeta variables.                         #
     ###########################################################################
+    gamma, x, sample_mean, sample_var, eps, x_hat = cache
+    dbeta = np.mean(dout, axis=0)
+    dgamma = np.mean(dout * x_hat, axis=0)
+
+    dx_hat = dout * gamma
+
     pass
     ###########################################################################
     #                             END OF YOUR CODE                            #
