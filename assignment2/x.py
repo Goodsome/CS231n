@@ -1,7 +1,5 @@
-import numpy as np
+from cs231n.data_utils import get_CIFAR10_data
 
-x = np.arange(6).reshape(-1, 3)
-p = 0.5
-a = np.random.randn(*x.shape)
-print(a)
-
+data = get_CIFAR10_data()
+for k, v in data.items():
+    print('%s: ' % k, v.shape)

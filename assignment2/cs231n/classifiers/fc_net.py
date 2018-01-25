@@ -216,7 +216,6 @@ class FullyConnectedNet(object):
         for k, v in self.params.items():
             self.params[k] = v.astype(dtype)
 
-
     def loss(self, X, y=None):
         """
         Compute loss and gradient for the fully-connected net.

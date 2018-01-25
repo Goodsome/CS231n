@@ -190,7 +190,6 @@ class Solver(object):
             self.model.params[p] = next_w
             self.optim_configs[p] = next_config
 
-
     def _save_checkpoint(self):
         if self.checkpoint_name is None: return
         checkpoint = {
