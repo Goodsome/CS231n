@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2407591-2080-4781-a080-7bb7fdb35116" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/x.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/x.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConvolutionalNetworks.ipynb" afterPath="$PROJECT_DIR$/ConvolutionalNetworks.ipynb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FullyConnectedNets.ipynb" afterPath="$PROJECT_DIR$/FullyConnectedNets.ipynb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TensorFlow.ipynb" afterPath="$PROJECT_DIR$/TensorFlow.ipynb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cs231n/classifiers/cnn.py" afterPath="$PROJECT_DIR$/cs231n/classifiers/cnn.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cs231n/classifiers/fc_net.py" afterPath="$PROJECT_DIR$/cs231n/classifiers/fc_net.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cs231n/layers.py" afterPath="$PROJECT_DIR$/cs231n/layers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cs231n/solver.py" afterPath="$PROJECT_DIR$/cs231n/solver.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/x.py" afterPath="$PROJECT_DIR$/x.py" />
-    </list>
+    <list default="true" id="e2407591-2080-4781-a080-7bb7fdb35116" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/TensorFlow.ipynb">
           <provider selected="true" editor-type-id="ipnb-editor">
             <state>
-              <selected id="21" />
+              <selected id="11" />
             </state>
           </provider>
         </entry>
